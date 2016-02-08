@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::get('/', 'UsersController@index');
+Route::get('/login', array('as' => 'login', 'uses' => 'UsersController@login'));
+Route::post('/login', array('as' => 'login', 'uses' => 'UsersController@handleLogin'));
+Route::post('/profile', array('as' => 'profile', 'uses' => 'UsersController@profile'));
+Route::get('/logout', array('as' => 'logout', 'uses' => 'UsersController@logout'));
+Route::get('/register', array('as' => 'register', 'uses' => 'UsersController@create'));
+Route::resource('user', 'UsersController');
+Route::resource('/profile', 'UsersController@profile');
