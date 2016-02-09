@@ -61,7 +61,5 @@
                 }
     function changelab(img){
                    document.getElementById('lab').src=img;
-                }
-
-    
+                }    
 </script>
