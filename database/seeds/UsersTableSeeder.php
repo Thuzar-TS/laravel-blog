@@ -22,6 +22,15 @@ class UsersTableSeeder extends Seeder
             'role_id' => 1, 
             'created_at' => new DateTime, 
             'updated_at' => new DateTime],
+
+            [
+            'login_id' => 'thinzar', 
+            'user_name' => 'Thinzar',      
+            'email' => 'thinzar@gmail.com',
+            'password' => Hash::make('thinzar'),
+            'role_id' => 2, 
+            'created_at' => new DateTime, 
+            'updated_at' => new DateTime],
         );
 
         // Uncomment the below to run the seeder

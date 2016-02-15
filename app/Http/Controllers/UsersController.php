@@ -116,7 +116,8 @@ class UsersController extends Controller
             'name'        =>  'required',
             'email'                =>  'email|unique:users,email|required',
             'password'          =>  'required|confirmed',
-            'password_confirmation' => 'required'
+            'password_confirmation' => 'required', 
+            'role'                  =>'required'
         ];
         $message = [
             'required' => 'The :attribute field is required.',
