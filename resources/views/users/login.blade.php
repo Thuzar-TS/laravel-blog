@@ -19,6 +19,8 @@
 {!! Form::password('password',array('class' => 'form-control')) !!}
 </div>
 
+<input type="hidden" name="_token" value="{!! csrf_token() !!}">
+
 {!! Form::submit('Login', array('class' => 'all-btn col-md-4 col-md-offset-4')) !!}
 
 {!! Form::close() !!}	

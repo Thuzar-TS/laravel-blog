@@ -11,9 +11,12 @@
 |
 */
 
+Route::model('doctors', 'Doctor'); 
 Route::get('/', 'UsersController@index');
 Route::get('/login', array('as' => 'login', 'uses' => 'UsersController@login'));
 Route::post('/login', array('as' => 'login', 'uses' => 'UsersController@handleLogin'));
+Route::post('/search', array('as' => 'search', 'uses' => 'UsersController@search'));
+Route::post('/searchpage', array('as' => 'searchpage', 'uses' => 'UsersController@searchpage'));
 Route::post('/profile', array('as' => 'profile', 'uses' => 'UsersController@profile'));
 Route::get('/logout', array('as' => 'logout', 'uses' => 'UsersController@logout'));
 Route::get('/register', array('as' => 'register', 'uses' => 'UsersController@create'));

@@ -35,7 +35,7 @@
     </div>
 
  
-        {!! Form::open(array('route' => array('user.store'), 'method' => 'post')) !!}
+       {!! Form::open(array('url' => 'search', 'method' => 'post')) !!}
  
          <div class="">
 

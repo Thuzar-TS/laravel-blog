@@ -10,6 +10,8 @@ use Validator;
 use Auth;
 use Hash;
 use App\User;
+use App\Doctor;
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -60,6 +62,25 @@ class UsersController extends Controller
     {
        return View::make('users.profile');
     }
+    public function search()
+    {
+         $doctors = Doctor::all(); 
+        return View::make('users.search')->with(compact('doctors'));
+        //$q = Input::only('searchtxt');
+
+    //$searchTerms = explode(' ', $q);
+
+   /*$query = DB::table('doctors');
+
+    foreach($q as $term)
+    {
+        $query->where('doctor_name', 'LIKE', '%'. $term .'%');
+    }
+
+    $doctors = $query->get();
+     return View::make('users.search')->with(compact('doctors'));
+     //return View::make('users.search',compact('doctors'));*/
+    }
 
     public function logout()
     {
@@ -75,7 +96,9 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return View::make('users.create');
+         $role_list  = DB::table('roles')->lists('description','role_id');
+        //$role_list = RoleModel::select('role_id', 'description');
+        return View::make('users.create')->with('role_list', $role_list);
     }
 
     /**
@@ -90,7 +113,7 @@ class UsersController extends Controller
         $data = $request->except('_token');
 
         $rules = [
-            'user_name'        =>  'required',
+            'name'        =>  'required',
             'email'                =>  'email|unique:users,email|required',
             'password'          =>  'required|confirmed',
             'password_confirmation' => 'required'
