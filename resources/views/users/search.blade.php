@@ -15,15 +15,25 @@
         </div>
           {!! Form::close() !!}
         <div class="row">
-        @if ( !$doctors->count() )
-        You have no doctors
-    @else
+        @if ( !count($result))
+        No search data
+        @else
         <ul>
-            @foreach( $doctors as $doctor )
-                <li>
-                        {!! $doctor->doctor_name !!}
-              </li>
+
+            @foreach( $result as $r )
+                @if($r->type == 'd')
+                <div class='col-sm-6 col-sm-offset-1 searchdiv'>
+                              <a href="{!! route('profile') !!}"><h1>{!! $r->name !!}</h1></a>
+                </div>
+
+                @else
+                <div class='col-sm-6 col-sm-offset-1 searchdiv'>
+                              <a href="{!! route('register') !!}"><h1>{!! $r->name !!}</h1></a>
+                </div>
+
+              @endif
             @endforeach
+
         </ul>
     @endif
             </div>

@@ -40,7 +40,7 @@
          <div class="">
 
         <div class="form-group col-md-6 col-md-offset-1">
-            {!! Form::text('Search',null,array('class' => 'form-control', 'placeholder' => 'Search Doctor or Hospital')) !!}
+            {!! Form::text('searchtxt',null,array('class' => 'form-control', 'placeholder' => 'Search Doctor or Hospital')) !!}
         </div>
 	 <div class="col-md-5">
 	 	{!! Form::submit('Search', array('class' => 'all-btn btn-primary ')) !!}

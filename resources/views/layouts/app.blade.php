@@ -78,7 +78,7 @@
                             @if (Auth::user()->role_id == 1)
                                 <li><a href="{!! route('logout') !!}">Log Out</a></li>
                                 <li><a href="{!! route('profile') !!}">{!! Auth::user()->user_name !!}</a></li>
-                                <li><a href="{!! route('profile') !!}"><img src="{!! asset('assets/img/user.jpg')!!}" class="img-circle col-md-5"></a></li>
+                                <li><a href="{!! route('profile') !!}"><img src="{!! route('getentry', Auth::user()->photo) !!}" class="img-circle col-md-5"><!--{!! Auth::user()->photo !!}--></a></li>
                                 <li><a href="{!! route('register') !!}">Create New</a></li>
                             @else
                                 <li><a href="{!! route('logout') !!}">Log Out</a></li>

@@ -3,7 +3,7 @@
 <div class="col-sm-12">
    
         <h2 class="col-md-4 col-md-offset-4">Create New</h2>
-        {!! Form::open(array('route' => array('user.store'), 'method' => 'post')) !!}
+        {!! Form::open(array('route' => array('user.store'),'files'=>true, 'method' => 'post')) !!}
         @if (isset($message))
         {!!  $message !!}
         @endif
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('role','Role') !!}
-            {!! Form::select('role', $role_list , Input::old('description'), array('class'=>'form-control')) !!}
+            {!! Form::select('role', $role_list , Input::old('id'), array('class'=>'form-control')) !!}
             <!--{!! Form::select('role', array('' => 'Select Role', '0 ' => 'Main Category') + $role_list) !!} -->
         </div>
         <div class="form-group">

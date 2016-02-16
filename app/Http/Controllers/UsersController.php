@@ -11,9 +11,12 @@ use Auth;
 use Hash;
 use App\User;
 use App\Doctor;
+use App\Hospital;
 use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class UsersController extends Controller
 {
@@ -64,8 +67,35 @@ class UsersController extends Controller
     }
     public function search()
     {
-         $doctors = Doctor::all(); 
-        return View::make('users.search')->with(compact('doctors'));
+        $name = Input::get('searchtxt');
+        $d='d';
+        $h='h';
+
+        $result = DB::select(DB::raw("select doctors.doctor_name as name,doctors.id as id,'d' as type from doctors where doctors.doctor_name LIKE '%$name%'
+            union 
+            select hospitals.hospital_name AS name, hospitals.id AS id,'h' AS type from hospitals where hospital_name LIKE '%$name%'
+            "));
+ /*       $doctors = DB::table('doctors')
+            ->select('doctors.doctor_name AS name', 'doctors.id AS id', '"d" AS type')
+            ->where('doctor_name', 'LIKE', '%'.$name.'%');
+
+        $hospitals = DB::table('hospitals')
+            ->select('hospitals.hospital_name AS name', 'hospitals.id AS id', '"h" AS type')
+            ->where('hospital_name', 'LIKE', '%'.$name.'%');
+
+        $result = $doctors->union($hospitals)->get();
+*/
+    return View::make('users.search')->with(compact('result'));
+//return View::make('users.search', ['result' => $result]);
+ //       return $result;
+        
+ /*        $doctors = Doctor::all(); 
+        $hospitals = Hospital::all();
+        return View::make('users.search')->with(compact('doctors','hospitals')); */
+
+
+  //      return View::make('users.search')->with(compact('doctors'));
+
         //$q = Input::only('searchtxt');
 
     //$searchTerms = explode(' ', $q);
@@ -96,7 +126,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-         $role_list  = DB::table('roles')->lists('description','role_id');
+         $role_list  = DB::table('roles')->lists('description','id');
         //$role_list = RoleModel::select('role_id', 'description');
         return View::make('users.create')->with('role_list', $role_list);
     }
@@ -134,12 +164,28 @@ class UsersController extends Controller
 
         $data['password'] = bcrypt($data['password']);
         unset($data['password_confirmation']);
-        if ($newUser = User::create($data)) {
+        /*if ($newUser = User::create($data)) {
             Auth::login($newUser);
             return redirect()->route('profile');
         }
 
-        return redirect()->route('user.create')->withInput();
+        return redirect()->route('user.create')->withInput();*/
+        //User::create( $data );
+
+     
+        
+        $users = new User;
+        $file = $data['filefield'];
+        $extension = $file->getClientOriginalExtension();
+        Storage::disk('local')->put($file->getFilename().'.'.$extension,  File::get($file));
+        $users->name = $data["name"];
+        $users->email = $data["email"];
+        $users->password = $data['password'];
+        $users->role_id = $data['role'];
+        $users->mime = $file->getClientMimeType();
+        $users->photo = $file->getFilename().'.'.$extension;
+        $users->save();
+          return View::make('users.profile');
         }
 
     /**
@@ -185,5 +231,12 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+   public function getphoto($photo){
+    
+        $entry = User::where('photo', '=', $photo)->firstOrFail();
+        $file = Storage::disk('local')->get($entry->photo);
+ 
+        return (new Response($file, 200))->header('Content-Type', $entry->mime);
     }
 }

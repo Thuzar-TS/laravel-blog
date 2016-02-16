@@ -12,6 +12,7 @@
 */
 
 Route::model('doctors', 'Doctor'); 
+Route::model('hospitals', 'Hospital'); 
 Route::get('/', 'UsersController@index');
 Route::get('/login', array('as' => 'login', 'uses' => 'UsersController@login'));
 Route::post('/login', array('as' => 'login', 'uses' => 'UsersController@handleLogin'));
@@ -20,5 +21,14 @@ Route::post('/searchpage', array('as' => 'searchpage', 'uses' => 'UsersControlle
 Route::post('/profile', array('as' => 'profile', 'uses' => 'UsersController@profile'));
 Route::get('/logout', array('as' => 'logout', 'uses' => 'UsersController@logout'));
 Route::get('/register', array('as' => 'register', 'uses' => 'UsersController@create'));
+Route::get('/profile/{photo}', ['as' => 'getentry', 'uses' => 'UsersController@getphoto']);
 Route::resource('user', 'UsersController');
 Route::resource('/profile', 'UsersController@profile');
+/*Route::get('getphoto/{photo}', function ($photo)
+{
+	  $entry = User::where('photo', '=', $photo)->firstOrFail();
+        $file = Storage::disk('local')->get($entry->photo);
+ 
+        return (new Response($file, 200))->header('Content-Type', $entry->mime);
+});*/
+//Route::get('/getphoto/{photo}','UsersController@getphoto');
