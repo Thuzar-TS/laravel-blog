@@ -46,3 +46,26 @@ Route::resource('hospital', 'HospitalsController');
 Route::resource('doctor', 'DoctorsController');
 Route::resource('lab', 'LabsController');
 Route::resource('/profile', 'UsersController@profile');
+
+/*
+
+URL will be like this
+
+domain.com/hospital/hosall
+domain.com/hospital/reghospital
+domain.com/hosall
+
+And can be used like this
+
+route('hospital::hosall');
+route('hospital::reghospital');
+route('hospital::hosall');
+
+Route::group([
+    'as'    => 'hospital::',
+    'prefix'=> 'hospital',
+], function () {
+    Route::post('hosall', array('as' => 'hosall', 'uses' => 'HospitalsController@search'));
+    Route::get('/reghospital', array('as' => 'reghospital', 'uses' => 'HospitalsController@create'));
+    Route::get('/hosall', array('as' => 'hosall', 'uses' => 'HospitalsController@hosall'));
+});*/
