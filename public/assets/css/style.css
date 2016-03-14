@@ -8,16 +8,20 @@ body{
 	  text-rendering: optimizeLegibility;
 	  -webkit-font-smoothing: subpixel-antialiased;
 }
-
 @font-face {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   src: url(../fonts/Roboto-Light.ttf);
 }
-
 #wrapper .pad-free{
 	padding:0px;
+}
+#doc .pad-free{
+	padding:0px;
+}
+#doc{
+	margin-top: 30px;
 }
 #main .navbar-default{
 	background: #3169f8;
@@ -26,13 +30,20 @@ body{
 	border:0px;
 	font-weight: bold;
 }
+
+.hos-img-adv{
+	margin-top: 50px;
+}
 #main .navbar-default a{
 	color:#fff;
+}
+#main .navbar{
+	margin-bottom: 0px;
 }
 .login-div{
 	box-shadow: 0px 0px 3px #b0b0b0;
 	padding:10px;
-	margin-top: 20px;
+	margin-top: 50px;
 }
 .login-bar{
 	text-align:center; 
@@ -43,9 +54,22 @@ body{
 	line-height: 33px;
 	background: linear-gradient(to bottom, #f8f8f8,#ededee);
 }
+.bar{
+	background: #ccc;
+	margin-bottom: 20px;
+	padding: 2px;
+	margin-top: 20px;
+}
+.doctor-table{
+	font-size: 1em;
+	font-weight: bold;
+}
+.doctor-table th{
+	color:#2A6496;
+}
 .login-form{
-	padding-top:20px;
-	padding-bottom: 20px;
+	padding-top:50px;
+	padding-bottom: 30px;
 }
 .login-c-div{
 	text-align: center;
@@ -61,7 +85,7 @@ body{
 	margin-bottom: 10px;
 }
 .home-box{
-	margin-top: 20px;
+	margin-top: 50px;
 }
 .box1,.box2,.box3{
 	border-top: 1px solid #a3a3a3;
@@ -76,4 +100,118 @@ body{
 }
 #home-box .pad-free{
 	padding:0px;
+}
+.searchbox{
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	background-color: #ebebeb;
+}
+.searchdoc{
+	margin-bottom: 10px;
+	box-shadow: 0px 0px 5px #ccc;
+}
+.searchhos{
+	margin-bottom: 10px;
+	box-shadow: 0px 0px 5px #ccc;
+}
+#doctordiv label{
+	line-height: 23px;
+	margin-bottom:0px;
+}
+thead{
+	background: #ccc;
+	color:#000;
+}
+.docalldiv{
+	box-shadow: 0 0 3px 0 #999;
+}
+h4{
+	font-size: 1.4em;
+	text-align: center;
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+.hos-name{
+	background-color: #ccc;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 1.5em;
+	padding:10px 0px;
+	color:#000;
+}
+.hos-img-adv span{
+	position: absolute;
+	bottom:20px;
+	left: 0px;
+	background: #fff;
+	opacity: 0.7;
+	padding:0px;
+	text-align: center;
+	font-weight: bold;
+	line-height: 38px;
+}
+.hos-img-adv{
+	padding: 0px;
+	margin-bottom: 30px;
+}
+.profile{
+	border:1px solid #ccc;
+	border-radius: 5px;
+	text-align: justify;
+	line-height: 38px;
+}
+h2{
+	text-align: center;
+	font-size: 1.5em;
+}
+.profile-div{
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}
+#footer{
+	height: 50px;
+	background: #3169f8;
+	color: white;
+	margin-top: 20px;
+	text-align: center;
+}
+#slider1, #slider2, #slider3{
+	height: 220px;
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	margin-bottom: 10px;
+}
+#slider1 li, #slider2 li, #slider3 li{
+	display: none;
+	position: absolute; 
+}
+#slider1 #imglist,#slider2 #imglist, #slider3 #imglist{
+	width: 100%;
+	height: 220px;
+	padding: 0;
+}
+#footer .social{
+	padding:5px;
+}
+#footer{
+	line-height: 44px;
+}
+#footer .footer-div{
+	margin-top: 1px;
+}
+#white-content{
+	display: none;
+	background: white;
+	position: absolute;
+	z-index: 1200;
+	top:50px;
+	left: 0px;
+	height:600px;
+	
+	border-radius: 5px;
+}
+#over-table{
+	height: 450px;
+	overflow-y: scroll; 
 }

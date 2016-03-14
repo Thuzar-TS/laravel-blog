@@ -2,35 +2,41 @@
 @section('content')
 <div class="col-sm-12">
    
-        <h2 class="col-md-4 col-md-offset-4">Create New</h2>
-        {!! Form::open(array('route' => array('user.store'),'files'=>true, 'method' => 'post')) !!}
+        <h2 class="col-md-4 col-md-offset-4">Create New Laboratory</h2>
+        {!! Form::open(array('route' => array('lab.store'),'files'=>true, 'method' => 'post')) !!}
         @if (isset($message))
         {!!  $message !!}
         @endif
          <div class="col-md-4 col-md-offset-4">
 
         <div class="form-group">
-            {!! Form::label('name','Name') !!}
+            {!! Form::label('name','Laboratory Name') !!}
             {!! Form::text('name', null,array('class' => 'form-control')) !!}
         </div>
         <div class="form-group">
-            {!! Form::label('email','Email') !!}
+            {!! Form::label('address','Laboratory Address') !!}
+            {!! Form::text('address', null,array('class' => 'form-control')) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('phone','Laboratory Phone') !!}
+            {!! Form::text('phone', null,array('class' => 'form-control')) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('website','Laboratory website') !!}
+            {!! Form::text('website', null,array('class' => 'form-control')) !!}
+        </div>
+                <div class="form-group">
+            {!! Form::label('email','Laboratory Email') !!}
             {!! Form::text('email', null,array('class' => 'form-control')) !!}
         </div>
-        @if(Auth::check() && Auth::user()->role_id==1)
+      
         <div class="form-group">
-            {!! Form::label('role','Role') !!}
-            {!! Form::select('role', $role_list , Input::old('id'), array('class'=>'form-control')) !!}
+            {!! Form::label('city','City') !!}
+            {!! Form::select('city', $city_list , Input::old('id'), array('class'=>'form-control')) !!}
             <!--{!! Form::select('role', array('' => 'Select Role', '0 ' => 'Main Category') + $role_list) !!} -->
         </div>
-        @else
-         <div class="form-group">
-            <input type="text" name="role" value="3" style="display:none;">
-            <!--{!! Form::select('role', array('' => 'Select Role', '0 ' => 'Main Category') + $role_list) !!} -->
-        </div>
-         @endif
 
-        <div class="form-group">
+          <div class="form-group">
             {!! Form::label('password','Password') !!}
             {!! Form::password('password',array('class' => 'form-control')) !!}
         </div>
@@ -38,14 +44,7 @@
                         {!! Form::label('password_confirmation','Password Confirm') !!}
                         {!! Form::password('password_confirmation',array('class' => 'form-control')) !!}
           </div>
-         @if(Auth::check() && Auth::user()->role_id==1)
-        <div class="form-group">
-            {!! Form::label('about','About') !!}
-            {!! Form::textarea('about', null,array('class' => 'form-control')) !!}
-        </div>
-         @endif
         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-
         {!! Form::submit('Register', array('class' => 'btn btn-primary')) !!}
         </div>
         <div class="col-md-2">

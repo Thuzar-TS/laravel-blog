@@ -3,40 +3,46 @@
 <div class="col-sm-12">
    
         <h2 class="col-md-4 col-md-offset-4">Create New</h2>
-        {!! Form::open(array('route' => array('user.store'),'files'=>true, 'method' => 'post')) !!}
+        {!! Form::open(array('route' => array('user.update', $users->id),'files'=>true, 'method' => 'PATCH')) !!}
         @if (isset($message))
         {!!  $message !!}
         @endif
          <div class="col-md-4 col-md-offset-4">
-
         <div class="form-group">
             {!! Form::label('name','Name') !!}
-            {!! Form::text('name', null,array('class' => 'form-control')) !!}
+            {!! Form::text('name',$users->name, array('class' => 'form-control')) !!}
         </div>
         <div class="form-group">
             {!! Form::label('email','Email') !!}
-            {!! Form::text('email', null,array('class' => 'form-control')) !!}
+            {!! Form::text('email',$users->email, array('class' => 'form-control')) !!}
         </div>
         @if(Auth::check() && Auth::user()->role_id==1)
         <div class="form-group">
             {!! Form::label('role','Role') !!}
             {!! Form::select('role', $role_list , Input::old('id'), array('class'=>'form-control')) !!}
-            <!--{!! Form::select('role', array('' => 'Select Role', '0 ' => 'Main Category') + $role_list) !!} -->
+            <!--{!! Form::select('role', array('' => 'Select Role', '$user->role_id' => 'Main Category') + $role_list) !!}-->
         </div>
-        @else
+        @elseif(Auth::user()->role_id==2)
+         <div class="form-group">
+            <input type="text" name="role" value="2" style="display:none;">
+        </div>
+         @elseif(Auth::user()->role_id==3)
          <div class="form-group">
             <input type="text" name="role" value="3" style="display:none;">
-            <!--{!! Form::select('role', array('' => 'Select Role', '0 ' => 'Main Category') + $role_list) !!} -->
+        </div>
+        @else
+        <div class="form-group">
+            <input type="text" name="role" value="4" style="display:none;">
         </div>
          @endif
 
         <div class="form-group">
             {!! Form::label('password','Password') !!}
-            {!! Form::password('password',array('class' => 'form-control')) !!}
+            {!! Form::password('password', array('class' => 'form-control')) !!}
         </div>
            <div class="form-group">
-                        {!! Form::label('password_confirmation','Password Confirm') !!}
-                        {!! Form::password('password_confirmation',array('class' => 'form-control')) !!}
+               {!! Form::label('password_confirmation','Password Confirm') !!}
+               {!! Form::password('password_confirmation',array('class' => 'form-control')) !!}
           </div>
          @if(Auth::check() && Auth::user()->role_id==1)
         <div class="form-group">

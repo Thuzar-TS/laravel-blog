@@ -1,0 +1,79 @@
+.jquery-script-ads { position:absolute; top:250px; left:150px;}
+
+#sidebar {
+  background: #47a2ff;
+  width: 300px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: -300px;
+  z-index: 2000;
+  top: 0;
+  transition: left 0.3s linear;
+}
+
+#sidebar.visible {
+  left: 0;
+  transition: left 0.3s linear;
+}
+
+#sidebar-btn {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+  margin: 20px;
+  position: absolute;
+  top: 0;
+  right: -60px;
+}
+
+#sidebar-btn span {
+  height: 2px;
+  background: #fff;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#sidebar-btn span:nth-child(2) { width: 75%; }
+
+#sidebar-btn span:nth-child(3) { width: 50%; }
+
+#black-overlay{
+  display: none;
+  width:100%;
+  height:100%;
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top:0px;
+  left:0px;
+  z-index: 1100;
+}
+
+#sidebar ul li {
+ list-style: none;
+ padding:10px;
+ border-bottom: 1px solid #3169f8;
+}
+
+#sidebar a{
+  color:white;
+  text-decoration: none;
+  font-weight: bold;
+}
+#sidebar #head{
+  background-color: #3169f8;
+  font-size: 1.4em;
+  padding:10px 0px;
+  font-weight: 900;
+}
+#head a{
+   color:#a0cfff;
+   margin-top: 5px;
+}
+#sidebar ul {
+  margin: 0;
+  padding: 0;
+}
