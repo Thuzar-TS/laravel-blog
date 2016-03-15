@@ -51,18 +51,18 @@
 		<div class="col-md-4 box1 pad-free">
 
 		<!--	<a href="#"><img src="{!! asset('assets/img/doctor.png')!!}" id="doctor" class="img-responsive col-md-12 pad-free" onmouseover="changedoctor('{!! asset('assets/img/doctor-over.png')!!}')" onmouseout="changedoctor('{!! asset('assets/img/doctor.png')!!}')"></a> -->
-			<a href="{!! route('docall') !!}"><img src="{!! asset('assets/img/doctor.png')!!}" id="doctor" class="img-responsive col-md-12 pad-free"></a>
-			<a href="{!! route('docall') !!}"><img src="{!! asset('assets/img/doctor-over.png')!!}" id="doctor-over" class="img-responsive col-md-12 pad-free" style="display:none;"></a>
+			<a href="{!! route('doctor::docall') !!}"><img src="{!! asset('assets/img/doctor.png')!!}" id="doctor" class="img-responsive col-md-12 pad-free"></a>
+			<a href="{!! route('doctor::docall') !!}"><img src="{!! asset('assets/img/doctor-over.png')!!}" id="doctor-over" class="img-responsive col-md-12 pad-free" style="display:none;"></a>
 		</div>
 		<div class="col-md-4 box2 pad-free">
 		<!--	<a href="#"><img src="{!! asset('assets/img/hospital.png')!!}" id="hospital" class="img-responsive col-md-12 pad-free" onmouseover="changehospital('{!! asset('assets/img/hospital-over.png')!!}')" onmouseout="changehospital('{!! asset('assets/img/hospital.png')!!}')"></a> -->
-			<a href="{!! route('hosall') !!}"><img src="{!! asset('assets/img/hospital.png')!!}" id="hospital" class="img-responsive col-md-12 pad-free"> </a>
-			<a href="{!! route('hosall') !!}"><img src="{!! asset('assets/img/hospital-over.png')!!}" id="hospital-over" class="img-responsive col-md-12 pad-free" style="display:none;"> </a>
+			<a href="{!! route('hospital::hosall') !!}"><img src="{!! asset('assets/img/hospital.png')!!}" id="hospital" class="img-responsive col-md-12 pad-free"> </a>
+			<a href="{!! route('hospital::hosall') !!}"><img src="{!! asset('assets/img/hospital-over.png')!!}" id="hospital-over" class="img-responsive col-md-12 pad-free" style="display:none;"> </a>
 		</div>
 		<div class="col-md-4 box3 pad-free">
 		<!--	<a href="#"><img src="{!! asset('assets/img/lab.png')!!}" id="lab" class="img-responsive col-md-12 pad-free" onmouseover="changelab('{!! asset('assets/img/lab-over.png')!!}')" onmouseout="changelab('{!! asset('assets/img/lab.png')!!}')"></a> -->
-			<a href="{!! route('laball') !!}"><img src="{!! asset('assets/img/lab.png')!!}" id="lab" class="img-responsive col-md-12 pad-free"> </a>
-			<a href="{!! route('laball') !!}"><img src="{!! asset('assets/img/lab-over.png')!!}" id="lab-over" class="img-responsive col-md-12 pad-free" style="display:none;"> </a>
+			<a href="{!! route('lab::laball') !!}"><img src="{!! asset('assets/img/lab.png')!!}" id="lab" class="img-responsive col-md-12 pad-free"> </a>
+			<a href="{!! route('lab::laball') !!}"><img src="{!! asset('assets/img/lab-over.png')!!}" id="lab-over" class="img-responsive col-md-12 pad-free" style="display:none;"> </a>
 		</div>
 
 		 {!! Form::open(array('url' => 'search', 'method' => 'post')) !!}

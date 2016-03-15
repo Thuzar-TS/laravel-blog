@@ -28,7 +28,7 @@
 </div>
 
 <div class="col-md-4 col-md-offset-4 login-c-div">
-	<a href="{!! route('register') !!}">Create An Account</a>
+	<a href="{!! route('user::register') !!}">Create An Account</a>
 </div>
 </div>
 @stop

@@ -22,13 +22,13 @@
                       <div class="searchdoc col-md-12 pad-free">
                       <div class="col-md-4 pad-free">
                       @if($r->photo)
-                       <div><a href="{!! route('doctor', $r->id) !!}"><img src="{!! asset('images/'.$r->photo)!!}" class="img-responsive" style="height:115px; width:100%;"></a></div>
+                       <div><a href="{!! route('user::doctor', $r->id) !!}"><img src="{!! asset('images/'.$r->photo)!!}" class="img-responsive" style="height:115px; width:100%;"></a></div>
                        @else
-                       <div><a href="{!! route('doctor', $r->id) !!}"><img src="{!! asset('images/user.jpg')!!}" class="img-responsive" style="height:115px; width:100%;"></a></div>
+                       <div><a href="{!! route('user::doctor', $r->id) !!}"><img src="{!! asset('images/user.jpg')!!}" class="img-responsive" style="height:115px; width:100%;"></a></div>
                        @endif
                        </div>
                        <div class="col-md-8">
-                              <a href="{!! route('doctor', $r->id) !!}"><label style="cursor:pointer;">{!! $r->doctor_name !!}</label></a><br/>
+                              <a href="{!! route('user::doctor', $r->id) !!}"><label style="cursor:pointer;">{!! $r->doctor_name !!}</label></a><br/>
                               <label>{!! $r->degree !!}</label>&nbsp;&nbsp;&nbsp;<label>({!! $r->specialist !!})</label><br/>
                               <label>{!! $r->city_name !!}</label>
                        </div>
@@ -53,7 +53,7 @@
         </div>
         </div>
  
-
+      {!! Form::open(array('url' => 'docall', 'method' => 'post', 'id' => 'set-up-form')) !!}
             @foreach( $alldoc as $r )
                 <div class='col-md-4'>
                 <label for="{!! $r->id !!}">
@@ -66,7 +66,7 @@
                        <div><img src="{!! asset('images/user.jpg')!!}" class="img-responsive" style="height:115px; width:100%;"></div>
                        @endif
                        </div>
-                       {!! Form::open(array('url' => 'docall', 'method' => 'post', 'id' => 'set-up-form')) !!}
+
                        <div class="col-md-8 pad-free">
                               <div class="col-md-10" style="color:#3169f8;"><label style="cursor:pointer;">{!! $r->doctor_name !!}</label></div>
                               <input type="checkbox" name="{!! $r->id !!}" value="{!! $r->id !!}" class="col-md-2" id="{!! $r->id !!}">
@@ -77,12 +77,12 @@
                               <label>{!! $r->city_name !!}</label>
                               </div>
                        </div>
-                       {!! Form::close() !!}
+                      
                       </div>
                       </label>
                 </div>
             @endforeach 
-      
-      <textarea name="listdata" id="listdata" cols="30" rows="10"></textarea>
+       {!! Form::close() !!}
+      <textarea name="listdata" id="listdata" cols="30" rows="10" style="display:none;"></textarea>
       </div>
 @endif

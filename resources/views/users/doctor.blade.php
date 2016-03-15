@@ -49,10 +49,10 @@
                         <div class="col-md-12 pad-free"><img src="{!! asset('images/hospital-icon.png')!!}" class="img-responsive" style="height:150px; width:100%;"></div>
                       @endif
                         <div class="col-md-12">
-                             <a href="{!! route('hospital', $r->hid) !!}" class="col-md-12 pad-free"><label style="cursor:pointer;">{!! $r->name !!}</label></a><br/>
+                             <a href="{!! route('user::hospital', $r->hid) !!}" class="col-md-12 pad-free"><label style="cursor:pointer;">{!! $r->name !!}</label></a><br/>
                              <label class="col-md-12 pad-free">{!! $r->type !!}</label><br/>
                              <label class="col-md-9 pad-free">{!! $r->address !!}</label>
-                             <a href="{!! route('hospital', $r->hid) !!}" class="col-md-2 col-md-offset-1" style="color:orange; font-weight:bold;font-size:0.85em;">DETAIL</a>
+                             <a href="{!! route('user::hospital', $r->hid) !!}" class="col-md-2 col-md-offset-1" style="color:orange; font-weight:bold;font-size:0.85em;">DETAIL</a>
                         </div>
                       </div>
               </div>
