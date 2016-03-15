@@ -13,6 +13,7 @@
 Route::model('doctors', 'Doctor'); 
 Route::model('hospitals', 'Hospital'); 
 Route::model('labs','Lab');
+Route::model('users','User');
 
 Route::group([
     'as'    => 'hospital::',
