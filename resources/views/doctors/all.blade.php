@@ -22,13 +22,13 @@
                       <div class="searchdoc col-md-12 pad-free">
                       <div class="col-md-4 pad-free">
                       @if($r->photo)
-                       <div><a href="{!! route('user::doctor', $r->id) !!}"><img src="{!! asset('images/'.$r->photo)!!}" class="img-responsive" style="height:115px; width:100%;"></a></div>
+                       <div><a href="{!! route('doctor', $r->id) !!}"><img src="{!! asset('images/'.$r->photo)!!}" class="img-responsive" style="height:115px; width:100%;"></a></div>
                        @else
-                       <div><a href="{!! route('user::doctor', $r->id) !!}"><img src="{!! asset('images/user.jpg')!!}" class="img-responsive" style="height:115px; width:100%;"></a></div>
+                       <div><a href="{!! route('doctor', $r->id) !!}"><img src="{!! asset('images/user.jpg')!!}" class="img-responsive" style="height:115px; width:100%;"></a></div>
                        @endif
                        </div>
                        <div class="col-md-8">
-                              <a href="{!! route('user::doctor', $r->id) !!}"><label style="cursor:pointer;">{!! $r->doctor_name !!}</label></a><br/>
+                              <a href="{!! route('doctor', $r->id) !!}"><label style="cursor:pointer;">{!! $r->doctor_name !!}</label></a><br/>
                               <label>{!! $r->degree !!}</label>&nbsp;&nbsp;&nbsp;<label>({!! $r->specialist !!})</label><br/>
                               <label>{!! $r->city_name !!}</label>
                        </div>

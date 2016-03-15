@@ -23,7 +23,7 @@
       @foreach( $doc as $d)
                 
                 	<tr>
-	                	<td><a href="{!! route('user::doctor', $d->id) !!}">{!! $d->doctor_name !!}</a></td>
+	                	<td><a href="{!! route('doctor', $d->id) !!}">{!! $d->doctor_name !!}</a></td>
 	                	<td>{!! $d->specialist !!}</td>
 	                	<td>{!! $d->doctor_address !!}</td>
                 	</tr>                

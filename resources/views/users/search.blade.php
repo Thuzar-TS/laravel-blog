@@ -35,7 +35,7 @@
                        @endif
                        </div>
                        <div class="col-md-8">
-                              <a href="{!! route('user::doctor', $r->id) !!}"><label style="cursor:pointer;">{!! $r->name !!}</label></a><br/>
+                              <a href="{!! route('doctor', $r->id) !!}"><label style="cursor:pointer;">{!! $r->name !!}</label></a><br/>
                               <label>{!! $r->d !!}</label>&nbsp;&nbsp;&nbsp;<label>({!! $r->s !!})</label><br/>
                               <label>{!! $r->cityname !!}</label>
                        </div>

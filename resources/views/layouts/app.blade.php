@@ -160,9 +160,9 @@
 @if (Auth::check())
  <div id="sidebar" class="col-md-2" style="padding:0px; position:fixed;"> 
        <ul class="col-md-12 pad-free">
-           <li id="head" class="col-md-12 pad-free"><a href="{!! route('user::profile') !!}" class="col-md-8">{!! Auth::user()->name !!}</a><img src="{!! URL::asset('images/' . Auth::user()->photo) !!}" class="img-circle img-responsive col-md-3" style="padding:0px;"></li>
-           <li class="col-md-12 pad-free"><a href="{!! route('user::/') !!}" class="col-md-8">Home</a></li>
-           <li class="col-md-12 pad-free"><a href="{!! route('user::edit', Auth::user()->id) !!}" class="col-md-8">Edit Profile</a></li>
+           <li id="head" class="col-md-12 pad-free"><a href="{!! route('profile') !!}" class="col-md-8">{!! Auth::user()->name !!}</a><img src="{!! URL::asset('images/' . Auth::user()->photo) !!}" class="img-circle img-responsive col-md-3" style="padding:0px;"></li>
+           <li class="col-md-12 pad-free"><a href="{!! route('/') !!}" class="col-md-8">Home</a></li>
+           <li class="col-md-12 pad-free"><a href="{!! route('edit', Auth::user()->id) !!}" class="col-md-8">Edit Profile</a></li>
            @if (Auth::user()->role_id == 1)
            <li class="col-md-12 pad-free dropdown"><a href="{!! route('hospital::reghospital') !!}" class="col-md-8">Create New Hospital</a></li>
            <li class="col-md-12 pad-free dropdown"><a href="{!! route('lab::reglab') !!}" class="col-md-8">Create New Lab</a></li>
@@ -172,8 +172,8 @@
             <li class="col-md-12 pad-free dropdown"><a href="{!! route('doctor::regdoctor') !!}" class="col-md-8">Create New Doctor</a></li>
             <li class="col-md-12 pad-free dropdown"><a href="{!! route('doctor::doclistall', Auth::user()->id) !!}" class="col-md-8">My Doctor List</a></li>
            @endif
-           <li class="col-md-12 pad-free dropdown"><a href="{!! route('user::register') !!}" class="col-md-8">Create New User</a></li>
-           <li class="col-md-12 pad-free"><a href="{!! route('user::logout') !!}" class="col-md-8">Logout</a></li>
+           <li class="col-md-12 pad-free dropdown"><a href="{!! route('register') !!}" class="col-md-8">Create New User</a></li>
+           <li class="col-md-12 pad-free"><a href="{!! route('logout') !!}" class="col-md-8">Logout</a></li>
        </ul>
        <div id="sidebar-btn">
            <span></span>
@@ -194,15 +194,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{!! route('user::/') !!}">MM Health Care Hub</a>
+                    <a class="navbar-brand" href="{!! route('/') !!}">MM Health Care Hub</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                
                     <ul class="nav navbar-nav navbar-right col-sm-9">
                         @if (!Auth::check())
-                        <li class="col-sm-offset-8 col-sm-2" style="padding: 0; "><a href="{!! route('user::login') !!}">Login</a></li>
-                        <li class="col-sm-2" style="padding: 0; "><a href="{!! route('user::/') !!}">Home</a></li>
+                        <li class="col-sm-offset-8 col-sm-2" style="padding: 0; "><a href="{!! route('login') !!}">Login</a></li>
+                        <li class="col-sm-2" style="padding: 0; "><a href="{!! route('/') !!}">Home</a></li>
                         @endif
                     </ul>
 

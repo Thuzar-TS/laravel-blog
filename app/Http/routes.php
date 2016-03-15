@@ -13,7 +13,7 @@
 Route::model('doctors', 'Doctor'); 
 Route::model('hospitals', 'Hospital'); 
 Route::model('labs','Lab');
-Route::model('users','User');
+//Route::model('users','User');
 
 Route::group([
     'as'    => 'hospital::',
@@ -43,10 +43,7 @@ Route::group([
     Route::get('/laball', array('as' => 'laball', 'uses' => 'LabsController@laball'));
 });
 
-Route::group([
-    'as'    => 'user::',
-    'prefix'=> 'user',
-], function () {
+
     Route::get('/', array('as' => '/', 'uses' => 'UsersController@index'));
     Route::get('/login', array('as' => 'login', 'uses' => 'UsersController@login'));
     Route::post('/login', array('as' => 'login', 'uses' => 'UsersController@handleLogin'));
@@ -61,7 +58,7 @@ Route::group([
     Route::get('/lab/{id}', array('as' => 'lab', 'uses' => 'UsersController@labdetail'));
     Route::get('/edit/{id}', array('as' => 'edit', 'uses' => 'UsersController@edit'));
     Route::post('/update/{id}', array('as' => 'update', 'uses' => 'UsersController@update'));
-});
+
 
 Route::resource('user', 'UsersController');
 Route::resource('hospital', 'HospitalsController');
